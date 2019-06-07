@@ -13,6 +13,16 @@ namespace Switch.Infra.Data.Config
             builder.Property(u => u.Nome).HasMaxLength(150).IsRequired();
             builder.Property(u => u.Senha).HasMaxLength(10).IsRequired();
             builder.Property(u => u.Sexo).IsRequired();
+
+            //1 para 1
+            builder.HasOne(u => u.Identificacao)
+                .WithOne(i => i.Usuario)
+                .HasForeignKey<Identificacao>(i => i.UsuarioId);
+
+            //Muitos para 1
+            builder.HasMany(u => u.Postagens)
+                .WithOne(p => p.Usuario);
+                
         }
     }
 }
