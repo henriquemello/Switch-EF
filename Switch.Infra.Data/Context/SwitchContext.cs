@@ -24,6 +24,7 @@ namespace Switch.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new PostagemConfiguration());
             modelBuilder.ApplyConfiguration(new GrupoConfiguration());
             modelBuilder.ApplyConfiguration(new UsuarioGrupoConfiguration());
+            modelBuilder.ApplyConfiguration(new StatusRelacionamentoConfiguration());
 
 
             base.OnModelCreating(modelBuilder);
